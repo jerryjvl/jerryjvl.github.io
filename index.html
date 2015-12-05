@@ -15,6 +15,17 @@
 			</div>
 		</md-toolbar>
 		
+		<md-content md-theme="docs-dark" layout-padding layout="row" layout-sm="column">
+			<md-input-container>
+				<label>Title</label>
+				<input ng-model="user.title">
+			</md-input-container>
+			<md-input-container>
+				<label>Email</label>
+				<input ng-model="user.email" type="email">
+			</md-input-container>
+		</md-content>
+		
 		<md-content flex layout-padding>
 			<h1>Hello World</h1>
 			<p>I'm hosted with GitHub Pages.</p>
