@@ -4,7 +4,7 @@
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc4/angular-material.min.css">
 	</head>
 
-	<body ng-controller="AppController as vm">
+	<body>
 		<md-toolbar>
 			<div class="md-toolbar-tools">
 				<h2>XKCD: Is It Worth the Time?</h2>
@@ -15,30 +15,32 @@
 			</div>
 		</md-toolbar>
 		
-		<md-content md-theme="docs-dark" layout-padding layout="row" layout-sm="column">
-			<md-input-container>
-				<label>Years till payback</label>
-				<input ng-model="vm.roiyears" type="number" ng-value="2">
-			</md-input-container>
-			<md-input-container>
-				<label>Weeks per year</label>
-				<input ng-model="vm.weeksperyear" type="number" ng-value="47">
-			</md-input-container>
-			<md-input-container>
-				<label>Days per week</label>
-				<input ng-model="vm.daysperweek" type="number" ng-value="5">
-			</md-input-container>
-			<md-input-container>
-				<label>Hours per day</label>
-				<input ng-model="vm.hoursperday" type="number" ng-value="8">
-			</md-input-container>
-		</md-content>
-		
-		<md-content flex layout-padding>
-			<h1>Hello World</h1>
-			<p>I'm hosted with GitHub Pages.</p>
-			<md-button>{{vm.title}}</md-button>
-		</md-content>
+		<div ng-controller="AppController as vm" ng-cloak class="md-inline-form">
+			<md-content md-theme="docs-dark" layout-padding layout="row" layout-sm="column">
+				<md-input-container>
+					<label>Years till payback</label>
+					<input ng-model="vm.roiyears" type="number" ng-value="2">
+				</md-input-container>
+				<md-input-container>
+					<label>Weeks per year</label>
+					<input ng-model="vm.weeksperyear" type="number" ng-value="47">
+				</md-input-container>
+				<md-input-container>
+					<label>Days per week</label>
+					<input ng-model="vm.daysperweek" type="number" ng-value="5">
+				</md-input-container>
+				<md-input-container>
+					<label>Hours per day</label>
+					<input ng-model="vm.hoursperday" type="number" ng-value="8">
+				</md-input-container>
+			</md-content>
+			
+			<md-content flex layout-padding>
+				<h1>Hello World</h1>
+				<p>I'm hosted with GitHub Pages.</p>
+				<md-button>{{vm.title}}</md-button>
+			</md-content>
+		</div>
 	</body>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
