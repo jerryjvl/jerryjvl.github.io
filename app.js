@@ -17,5 +17,9 @@
 		var vm = this;
 		
 		vm.title = "This Title";
+		vm.roiyears = 3;
+		vm.weeksperyear = 47;
+		vm.daysperweek = 5;
+		vm.hoursperday = 8;
 	}
 })();
