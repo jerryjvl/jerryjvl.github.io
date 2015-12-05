@@ -4,11 +4,11 @@
 
 	</head>
 
-	<body>
+	<body ng-controller="AppCtrl as vm">
 		<md-content>
 			<h1>Hello World</h1>
 			<p>I'm hosted with GitHub Pages.</p>
-			<md-button>Testing</md-button>
+			<md-button>{{vm.title}}</md-button>
 		</md-content>
 	</body>
 	
@@ -17,6 +17,12 @@
 	
 	<script>
 		angular
-			.module('demo', ['ngMaterial']);
+			.module('demo', ['ngMaterial'])
+			.controller('AppCtrl', AppController);
+			
+		function AppController() {
+			var vm = this;
+			vm.title = "Title"
+		}
 	</script>
 </html>
