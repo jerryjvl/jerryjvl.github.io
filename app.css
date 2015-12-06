@@ -5,3 +5,7 @@
 .effort-grid md-grid-tile-footer {
 	height: 24px;
 }
+
+.input-control {
+	width: 120px;
+}
