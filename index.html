@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="demo">
 	<head>
-		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc4/angular-material.min.css">
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc4/angular-material.min.css" />
+		<link rel="stylesheet" href="./app.css" />
 	</head>
 
 	<body>
@@ -9,36 +10,46 @@
 			<div class="md-toolbar-tools">
 				<h2>XKCD: Is It Worth the Time?</h2>
 				<span flex></span>
-				<md-button aria-label="Go to XKCD cartoon">
+				<md-button aria-label="Go to XKCD cartoon" href="https://xkcd.com/1205/">
 					Go to XKCD
 				</md-button>
 			</div>
 		</md-toolbar>
 		
-		<div ng-controller="AppController as vm" ng-cloak class="md-inline-form">
-			<md-content md-theme="docs-dark" layout-padding layout="row" layout-sm="column">
+		<div ng-controller="AppController as vm" ng-model-options="{debounce: 500}" ng-cloak class="md-inline-form">
+			<md-content md-theme="docs-dark" layout-padding layout="row">
 				<md-input-container>
 					<label>Years till payback</label>
-					<input ng-model="vm.roiyears" type="number">
+					<input ng-model="vm.roiYears" ng-change="vm.update()" type="number" min="1" max="5">
 				</md-input-container>
 				<md-input-container>
 					<label>Weeks per year</label>
-					<input ng-model="vm.weeksperyear" type="number">
+					<input ng-model="vm.weeksPerYear" ng-change="vm.update()" type="number" min="1" max="52">
 				</md-input-container>
 				<md-input-container>
 					<label>Days per week</label>
-					<input ng-model="vm.daysperweek" type="number">
+					<input ng-model="vm.daysPerWeek" ng-change="vm.update()" type="number" min="1" max="7">
 				</md-input-container>
 				<md-input-container>
 					<label>Hours per day</label>
-					<input ng-model="vm.hoursperday" type="number">
+					<input ng-model="vm.hoursPerDay" ng-change="vm.update()" type="number" min="1" max="24">
 				</md-input-container>
+				
+				<section layout="row" layout-align="center center" layout-wrap>
+					<md-button aria-label="XKCD" ng-click="vm.setXkcd()">XKCD</md-button>
+					<md-button aria-label="Australian work hours" ng-click="vm.setAu()">AU Work</md-button>
+					<md-button aria-label="American work hours" ng-click="vm.setUs()">US Work</md-button>
+					<md-button aria-label="British work hours" ng-click="vm.setUk()">UK Work</md-button>
+				</section>			
 			</md-content>
 			
 			<md-content flex layout-padding>
-				<h1>Hello World</h1>
-				<p>I'm hosted with GitHub Pages.</p>
-				<md-button>{{vm.title}}</md-button>
+				<md-grid-list md-cols="{{vm.colCount}}" md-row-height="64px" md-gutter="8px" class="effort-grid">
+					<md-grid-tile ng-repeat="tile in vm.tiles" ng-style="tile.background">
+						<h2>{{tile.maxEffort}}</h2>
+						<md-grid-tile-footer><h3>{{tile.timeSaved}}, {{tile.frequency}}</h3></md-grid-tile-footer>
+					</md-grid-tile>
+				</md-grid-list>
 			</md-content>
 		</div>
 	</body>
