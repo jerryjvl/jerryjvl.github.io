@@ -57,7 +57,7 @@
 			</md-content>
 			
 			<md-content flex layout-padding>
-				<md-grid-list md-cols="{{vm.colCount}}" md-row-height="64px" md-gutter="8px" class="effort-grid">
+				<md-grid-list md-cols="{{vm.colCount}}" md-row-height="64px" md-gutter="8px" style="height: 648px;" class="effort-grid">
 					<md-grid-tile ng-repeat="tile in vm.tiles" ng-style="tile.background">
 						<h2>{{tile.maxEffort}}</h2>
 						<md-grid-tile-footer><h3>{{tile.timeSaved}}, {{tile.frequency}}</h3></md-grid-tile-footer>
